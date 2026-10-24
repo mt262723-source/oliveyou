@@ -1,0 +1,6 @@
+{
+  "name": "물지킴이 AI - 농업용 비료 유출 수질 모니터링",
+  "description": "농업용 비료 유출 위험 모니터링 및 하천 수질 대응 시뮬레이션 웹앱",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
