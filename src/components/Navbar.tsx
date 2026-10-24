@@ -25,7 +25,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header className="flex items-center justify-between gap-6 px-6 py-3.5 bg-white border-b border-slate-200">
       {/* Zone 1: Brand title, one line */}
       <button
-        onClick={() => onTabChange('results')}
+        onClick={() => onTabChange('simulation3d')}
         className="text-base font-bold tracking-tight text-slate-900 whitespace-nowrap shrink-0 text-left cursor-pointer"
       >
         물지킴이 AI
@@ -33,18 +33,6 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Zone 2: 3 clean single-line nav links */}
       <nav className="flex items-center gap-3 sm:gap-6 text-sm font-medium text-slate-600">
-        <button
-          onClick={() => onTabChange('results')}
-          className={`flex items-center gap-1.5 hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
-            activeTab === 'results'
-              ? 'text-cyan-700 font-bold underline underline-offset-8 decoration-2'
-              : ''
-          }`}
-        >
-          <Compass className="w-4 h-4" />
-          <span>결과 및 맞춤 솔루션</span>
-        </button>
-
         <button
           onClick={() => onTabChange('simulation3d')}
           className={`flex items-center gap-1.5 hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
@@ -55,6 +43,18 @@ export const Navbar: React.FC<NavbarProps> = ({
         >
           <Box className="w-4 h-4" />
           <span>2D 하천 3구간 시뮬레이터</span>
+        </button>
+
+        <button
+          onClick={() => onTabChange('results')}
+          className={`flex items-center gap-1.5 hover:text-slate-900 transition-colors whitespace-nowrap shrink-0 cursor-pointer ${
+            activeTab === 'results'
+              ? 'text-cyan-700 font-bold underline underline-offset-8 decoration-2'
+              : ''
+          }`}
+        >
+          <Compass className="w-4 h-4" />
+          <span>결과 및 맞춤 솔루션</span>
         </button>
 
         <button

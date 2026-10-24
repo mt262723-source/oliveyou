@@ -20,7 +20,7 @@ import { BufferZoneGuidePage } from './components/BufferZoneGuidePage';
 
 export default function App() {
   const [currentStation, setCurrentStation] = useState<StationInfo>(STATIONS[0]);
-  const [activeTab, setActiveTab] = useState<NavTab>('results');
+  const [activeTab, setActiveTab] = useState<NavTab>('simulation3d');
   const [selectedMetricKey, setSelectedMetricKey] = useState<string>('nitrateMgL');
   const [isRunning, setIsRunning] = useState<boolean>(true);
   const [intervalSeconds, setIntervalSeconds] = useState<number>(3);
@@ -99,19 +99,6 @@ export default function App() {
 
       {/* 3. Main Body Container */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        {activeTab === 'results' && (
-          <ResultsAndSolutionPage
-            currentStation={currentStation}
-            onSelectStation={handleSelectStation}
-            dataPoint={lastPoint}
-            riskEvaluation={riskEvaluation}
-            simParams={simParams}
-            onUpdateSimParams={updateSimParams}
-            isRunning={isRunning}
-            onToggleRun={() => setIsRunning((prev) => !prev)}
-          />
-        )}
-
         {activeTab === 'simulation3d' && (
           <Detailed3DPage
             currentStation={currentStation}
@@ -124,6 +111,19 @@ export default function App() {
             onSelectMetric={setSelectedMetricKey}
             simParams={simParams}
             onUpdateSimParams={updateSimParams}
+          />
+        )}
+
+        {activeTab === 'results' && (
+          <ResultsAndSolutionPage
+            currentStation={currentStation}
+            onSelectStation={handleSelectStation}
+            dataPoint={lastPoint}
+            riskEvaluation={riskEvaluation}
+            simParams={simParams}
+            onUpdateSimParams={updateSimParams}
+            isRunning={isRunning}
+            onToggleRun={() => setIsRunning((prev) => !prev)}
           />
         )}
 
